@@ -1,4 +1,5 @@
 /*
+Just want to thank Matt Crawford for his guide, JSHint for letting me know when my variable weren't defined, and DirtyMarkup for cleaning up my code.
  * Create a list that holds all of your cards
  */
 /*

@@ -1,13 +1,6 @@
 /*
 Just want to thank Matt Crawford for his guide, JSHint for letting me know when my variable weren't defined, and DirtyMarkup for cleaning up my code.
- * Create a list that holds all of your cards
- */
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+ 
 //Globals
 let toggledCards = [];
 let moves = 0;
@@ -18,6 +11,7 @@ let matched = 0;
 const deck = document.querySelector('.deck');
 const cards = document.querySelector('.card');
 const pairs = 7;
+
 /* Shuffle the cards */
 function shuffleDeck() {
 	const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
@@ -27,6 +21,7 @@ function shuffleDeck() {
 	}
 }
 shuffleDeck();
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
 	var currentIndex = array.length,
@@ -151,6 +146,29 @@ function toggleModal() {
 	modal.classList.toggle('hide');
 }
 
+function writeModalStats() {
+		 const timeStat = document.querySelector('.modal__time');
+		 const clockTime = document.querySelector('.clock').innerHTML;
+		 const movesStat = document.querySelector('.modal__moves');
+		 const starsStat = document.querySelector('.modal__stars');
+		 const stars = getStars();
+
+		 timeStat.innerHTML = `Time = ${clockTime}`;
+		 movesStat.innerHTML = `Moves = ${moves}`;
+		 starsStat.innerHTML = `Stars = ${stars}`;
+ }
+
+ function getStars() {
+		 stars = document.querySelectorAll('.stars li');
+		 starCount = 0;
+		 for (star of stars) {
+				 if (star.style.display !== 'none') {
+						 starCount++;
+				 }
+		 }
+		 console.log(starCount);
+		 return starCount;
+ }
 /* cancel and reset */
 document.querySelector('.modal__cancel').addEventListener('click', () => {
 	toggleModal();
@@ -191,6 +209,7 @@ function replayGame() {
 	resetGame();
 	toggleModal();
 }
+
 document.querySelector('.restart').addEventListener('click', resetGame);
 document.querySelector('.modal__replay').addEventListener('click', replayGame);
 if (matched === pairs) {

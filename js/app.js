@@ -194,10 +194,14 @@ function replayGame() {
 document.querySelector('.restart').addEventListener('click', resetGame);
 document.querySelector('.modal__replay').addEventListener('click', replayGame);
 if (matched === pairs) {
-	gameOver;
+	gameOver();
+	resetGame();
 }
 
 function gameOver() {
 	stopClock();
+	writeModalStats();
 	toggleModal();
+}
+
 }

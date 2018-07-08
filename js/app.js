@@ -87,6 +87,7 @@ function checkForMatch() {
 		if (matched === 7) {
 			console.log(matched);
 			toggleModal();
+			writeModalStats();
 			stopClock();
 		} else {
 			matched++;
@@ -160,11 +161,8 @@ function resetGame() {
 	resetMoves();
 	const cardx = Array.from(document.querySelectorAll('.deck li'));
 	cardx.forEach((card) => {
-		card.classList.remove('show');
-		card.classList.remove('open');
-		card.classList.remove('match');
-	});
-	matched = 0;
+		card.classList.remove('open','show','match');
+		});
 	resetStars();
 	shuffleDeck();
 }

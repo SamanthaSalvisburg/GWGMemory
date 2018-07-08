@@ -1,6 +1,14 @@
 /*
 Just want to thank Matt Crawford for his guide, JSHint for letting me know when my variable weren't defined, and DirtyMarkup for cleaning up my code.
- 
+ /*
+ * Create a list that holds all of your cards
+ */
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
 //Globals
 let toggledCards = [];
 let moves = 0;
@@ -21,7 +29,6 @@ function shuffleDeck() {
 	}
 }
 shuffleDeck();
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
 	var currentIndex = array.length,
@@ -221,6 +228,4 @@ function gameOver() {
 	stopClock();
 	writeModalStats();
 	toggleModal();
-}
-
 }

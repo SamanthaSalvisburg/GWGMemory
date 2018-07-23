@@ -188,6 +188,7 @@ function resetGame() {
 	cardx.forEach((card) => {
 		card.classList.remove('open','show','match');
 		});
+	toggledCards = [];
 	resetStars();
 	shuffleDeck();
 }
